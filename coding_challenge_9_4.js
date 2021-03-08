@@ -1,17 +1,13 @@
 function camelCase(...names) {
-    // const wordEdited = word.trim().toLowerCase().split('_');
-    // const wordFinal = [];
+    let counter = 1;
 
-    // for (const item of wordEdited) 
-    //     wordFinal.push(item[0].toUpperCase() + item.slice(1));
+    for (let name of names) {
+        name = name.toLowerCase().trim();
+        name = name.slice(0, name.indexOf('_')) + name[name.indexOf('_') + 1].toUpperCase() + name.slice(name.indexOf('_') + 2, name.length);
 
-    // return wordFinal[0] + wordFinal[1];
-
-    const editedNames = [];
-    const finalNames = [];
-
-    console.log(editedNames);
-
+        console.log(name.padEnd(20) + '✔'.repeat(counter));
+        counter++;
+    }
 }
 
-camelCase('naDir_hujdur', 'NaiD_Hujdur');
+camelCase('underscore_case', ' first_name', 'Some_Variable', '  calculate_AGE', 'delayed_departure');
